@@ -11,18 +11,18 @@ dim = int(sys.argv[1])
 level = int(sys.argv[2])
 grid = Grid.createLinearGrid(dim)
 gridStorage = grid.getStorage()
-print "dimensionality:         %d" % (gridStorage.dim())
+print("dimensionality:         %d" % (gridStorage.dim()))
 
 
 # create regular grid, level 3
 gridGen = grid.createGridGenerator()
 gridGen.regular(level)
-print "number of grid points:  %d" % (gridStorage.size())
+print("number of grid points:  %d" % (gridStorage.size()))
 
 # Print to file
 outfile = sys.argv[3]
 f = open(outfile,'w')
-for i in xrange(gridStorage.size()):
+for i in range(gridStorage.size()):
     gp = gridStorage.get(i)
     for j in range(0,dim):
         f.write("%f" % (gp.abs(j)))
